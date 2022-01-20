@@ -63,6 +63,7 @@ export class SyntheseCarteComponent implements OnInit, AfterViewInit, OnChanges 
 
     // add the featureGroup to the map
     this.cluserOrSimpleFeatureGroup.addTo(this._ms.map);
+    this._ms.map.attributionControl.setPrefix('<a  target="_blank" href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
   }
 
   // redefine toggle style from mapListSerice because we don't use geojson component here for perf reasons

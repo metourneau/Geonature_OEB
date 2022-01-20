@@ -1,153 +1,153 @@
-<mat-sidenav-container class="sidenav-container">
 
-  <mat-sidenav
-    id="app-sidenav"
-    #sidenav
-    mode="side"
-    [opened]="sideNavService.opened"
-  >
-    <pnx-sidenav-items></pnx-sidenav-items>
-  </mat-sidenav>
-
-
-  <mat-sidenav-content>
     <mat-toolbar
-      id="app-toolbar"
-      class="row"
+    id="app-toolbar"
+    class="row"
+  >
+    <!--button
+      class="mat-elevation-z1 mr-2"
+      mat-icon-button
+      matTooltip="Ouvrir le menu principal"
+      (click)="closeSideBar()"
     >
+      <mat-icon aria-label="Ouvrir le menu principal">menu</mat-icon>
+    </button>
+
+    <span class="mx-2"> {{ moduleName }} </span-->
+
+    <img
+      id="logo-structure"
+      src="custom/images/{{appConfig.LOGO_STRUCTURE_FILE}}"
+      alt=""
+    >
+
+    <span class="toolbar-spacer"></span>
+    <div>
+
+    </div>
+    <span id="appName">
+      <h3> {{ appConfig.appName }} </h3>
+    </span>
+
+    <span class="toolbar-spacer"></span>
+
+    <ng-container *ngIf="
+        !appConfig.CAS_PUBLIC.CAS_AUTHENTIFICATION &&
+        appConfig.ACCOUNT_MANAGEMENT.ENABLE_USER_MANAGEMENT ;
+        else noUserManagement
+      ">
       <button
-        class="mat-elevation-z1 mr-2"
-        mat-icon-button
-        matTooltip="Ouvrir le menu principal"
-        (click)="closeSideBar()"
+        class="mx-1"
+        mat-raised-button
+        matTooltip="Ouvrir le menu de mon profil"
+        [matMenuTriggerFor]="userMenu"
       >
-        <mat-icon aria-label="Ouvrir le menu principal">menu</mat-icon>
-      </button>
-
-      <span class="mx-2"> {{ moduleName }} </span>
-
-      <img
-        id="logo-structure"
-        class="mx-2"
-        src="custom/images/{{appConfig.LOGO_STRUCTURE_FILE}}"
-        alt=""
-      >
-
-      <span class="toolbar-spacer"></span>
-      <div>
-
-      </div>
-      <span id="appName">
-        <h3> {{ appConfig.appName }} </h3>
-      </span>
-
-      <span class="toolbar-spacer"></span>
-
-      <ng-container *ngIf="
-          !appConfig.CAS_PUBLIC.CAS_AUTHENTIFICATION &&
-          appConfig.ACCOUNT_MANAGEMENT.ENABLE_USER_MANAGEMENT ;
-          else noUserManagement
-        ">
-        <button
-          class="mx-1"
-          mat-raised-button
-          matTooltip="Ouvrir le menu de mon profil"
-          [matMenuTriggerFor]="userMenu"
-        >
-          <mat-icon> person </mat-icon>
-          <span class="user-name">
-            {{ currentUser?.user_login }}
-          </span>
-        </button>
-
-        <mat-menu #userMenu>
-          <a
-            mat-menu-item
-            matTooltip="Accéder aux paramètres de mon compte"
-            matTooltipPosition="before"
-            routerLink="/user"
-          >
-            {{ 'MyAccount' | translate }}
-          </a>
-        </mat-menu>
-      </ng-container>
-
-      <ng-template #noUserManagement>
+        <mat-icon> person </mat-icon>
         <span class="user-name">
           {{ currentUser?.user_login }}
         </span>
-      </ng-template>
-
-      <ng-container *ngIf="appConfig.FRONTEND.MULTILINGUAL">
-        <button
-          class="mx-2  mat-elevation-z1"
-          mat-icon-button
-          matTooltip="{{ 'Sel_lang' | translate }}"
-          [matMenuTriggerFor]="languagesMenu"
-        >
-          <mat-icon>language</mat-icon>
-        </button>
-
-        <mat-menu #languagesMenu>
-          <button
-            mat-menu-item
-            (click)="changeLanguage('fr')"
-            [disabled]="locale == 'fr'"
-            matTooltip="Afficher l'interface en français"
-            matTooltipPosition="before"
-          >
-            <mat-icon *ngIf="locale == 'fr'">check</mat-icon>
-            {{ 'Languages.French' | translate }}
-          </button>
-          <button
-            mat-menu-item
-            (click)="changeLanguage('en')"
-            [disabled]="locale == 'en'"
-            matTooltip="Afficher l'interface en Anglais"
-            matTooltipPosition="before"
-          >
-            <mat-icon *ngIf="locale == 'en'">check</mat-icon>
-            {{ 'Languages.English' | translate }}
-          </button>
-          <button
-            mat-menu-item
-            (click)="changeLanguage('zh')"
-            [disabled]="locale == 'zh'"
-            matTooltip="Afficher l'interface en Chinois"
-            matTooltipPosition="before"
-          >
-            <mat-icon *ngIf="locale == 'zh'">check</mat-icon>
-            {{ 'Languages.Chinese' | translate }}
-          </button>
-        </mat-menu>
-      </ng-container>
-
-      <a
-        class="mx-2 mat-elevation-z1"
-        mat-icon-button
-        matTooltip="Ouvrir la documentation"
-        [href]="currentDocUrl"
-        target="_blank"
-      >
-        <mat-icon id="documentation_link">library_books</mat-icon>
-      </a>
-
-      <button
-        class="mx-2 mat-elevation-z1"
-        mat-icon-button
-        matTooltip="{{ 'LogOut' | translate }}"
-        (click)="authService.logout()"
-      >
-        <mat-icon>exit_to_app</mat-icon>
       </button>
-    </mat-toolbar>
 
-    <div class="app-content">
-      <div>
-        <router-outlet></router-outlet>
-      </div>
+      <mat-menu #userMenu>
+        <a
+          mat-menu-item
+          matTooltip="Accéder aux paramètres de mon compte"
+          matTooltipPosition="before"
+          routerLink="/user"
+        >
+          {{ 'MyAccount' | translate }}
+        </a>
+      </mat-menu>
+    </ng-container>
 
+    <ng-template #noUserManagement>
+      <span class="user-name">
+        {{ currentUser?.user_login }}
+      </span>
+    </ng-template>
+
+    <ng-container *ngIf="appConfig.FRONTEND.MULTILINGUAL">
+      <button
+        class="mx-2  mat-elevation-z1"
+        mat-icon-button
+        matTooltip="{{ 'Sel_lang' | translate }}"
+        [matMenuTriggerFor]="languagesMenu"
+      >
+        <mat-icon>language</mat-icon>
+      </button>
+
+      <mat-menu #languagesMenu>
+        <button
+          mat-menu-item
+          (click)="changeLanguage('fr')"
+          [disabled]="locale == 'fr'"
+          matTooltip="Afficher l'interface en français"
+          matTooltipPosition="before"
+        >
+          <mat-icon *ngIf="locale == 'fr'">check</mat-icon>
+          {{ 'Languages.French' | translate }}
+        </button>
+        <button
+          mat-menu-item
+          (click)="changeLanguage('en')"
+          [disabled]="locale == 'en'"
+          matTooltip="Afficher l'interface en Anglais"
+          matTooltipPosition="before"
+        >
+          <mat-icon *ngIf="locale == 'en'">check</mat-icon>
+          {{ 'Languages.English' | translate }}
+        </button>
+        <button
+          mat-menu-item
+          (click)="changeLanguage('zh')"
+          [disabled]="locale == 'zh'"
+          matTooltip="Afficher l'interface en Chinois"
+          matTooltipPosition="before"
+        >
+          <mat-icon *ngIf="locale == 'zh'">check</mat-icon>
+          {{ 'Languages.Chinese' | translate }}
+        </button>
+      </mat-menu>
+    </ng-container>
+
+    <a
+      class="mx-2 mat-elevation-z1"
+      mat-icon-button
+      matTooltip="Tutoriel utilisation"
+      [href]="currentDocUrl"
+      target="_blank"
+    >
+      <mat-icon id="documentation_link">help</mat-icon>
+    </a>
+
+    <button
+      class="mx-2 mat-elevation-z1"
+      mat-icon-button
+      matTooltip="{{ 'LogOut' | translate }}"
+      (click)="authService.logout()"
+    >
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+  </mat-toolbar>
+<mat-sidenav-container class="sidenav-container">
+
+<mat-sidenav
+  id="app-sidenav"
+  #sidenav
+  mode="side"
+  [opened]="sideNavService.opened"
+>
+  <pnx-sidenav-items></pnx-sidenav-items>
+</mat-sidenav>
+
+
+<mat-sidenav-content>
+
+  <div class="app-content">
+    <div>
+      <router-outlet></router-outlet>
     </div>
-  </mat-sidenav-content>
+
+  </div>
+</mat-sidenav-content>
 
 </mat-sidenav-container>

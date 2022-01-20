@@ -23,7 +23,7 @@ export class NavHomeComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
   public currentUser: User;
   public appConfig: any;
-  public currentDocUrl: string;
+  public currentDocUrl: string = 'https://preprod.biodiversite-bretagne.fr/accueil/presentation#top-tuto' ;
   public locale: string;
   @ViewChild('sidenav') public sidenav: MatSidenav;
 
@@ -84,7 +84,9 @@ export class NavHomeComponent implements OnInit, OnDestroy {
       if (module) {
         this.moduleName = module.module_label;
         if (module.module_doc_url) {
-          this.currentDocUrl = module.module_doc_url;
+          /*OEB*/
+          /*this.currentDocUrl = module.module_doc_url;*/
+	        this.currentDocUrl = "https://data.biodiversite-bretagne.fr/accueil/presentation#top-tuto";
         }
       } else {
         this.moduleName = 'Accueil';

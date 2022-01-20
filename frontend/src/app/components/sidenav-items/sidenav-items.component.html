@@ -1,4 +1,4 @@
-<mat-card class="logo">
+<!--mat-card class="logo">
   <a
     routerLink="/"
     routerLinkActive="active"
@@ -8,20 +8,34 @@
       src="custom/images/logo_sidebar.jpg"
     />
   </a>
-</mat-card>
+</mat-card-->
 <mat-nav-list class="appnav">
-  <a href="#{{home_page.module_url}}">
+  <!--a href="#{{home_page.module_url}}"-->
+  <a href="https://data.biodiversite-bretagne.fr/accueil">
     <mat-list-item
       (click)="setHome()"
       [routerLink]="home_page.module_url"
       routerLinkActive="active"
       class="sidenav-item"
+      matTooltip="Accueil"
+      matTooltipPosition="right"
+      matTooltipClass="tooltip-atlas"
     >
-      <i
-        class="fa {{home_page.module_picto}} picto"
-        aria-hidden="true"
-      > </i>
-      <span class="module-name">{{ home_page.module_label }} </span>
+      <i class="fa {{home_page.module_picto}} fa-2x picto-atlas" aria-hidden="true"> </i>
+      <!--i class="fa {{home_page.module_picto}} picto" aria-hidden="true"> </i-->
+      <!--OEB-->
+      <!--span class="module-name">{{ home_page.module_label }} </span-->
+    </mat-list-item>
+  </a>
+  <a href="https://data.biodiversite-bretagne.fr/accueil/presentation">
+    <mat-list-item
+      routerLinkActive="active"
+      class="sidenav-item"
+      matTooltip="Présentation"
+      matTooltipPosition="right"
+      matTooltipClass="tooltip-atlas"
+    >
+      <i class="fa fa-info-circle fa-2x picto-atlas" aria-hidden="true"> </i>
     </mat-list-item>
   </a>
 
@@ -30,21 +44,27 @@
     href="{{module.module_url}}"
     target="_self"
   >
-    <mat-list-item
+    <mat-list-item 
+      class="sidenav-item" 
+      matTooltip="{{ module.module_label }}"
+      matTooltipPosition="right"
+      matTooltipClass="tooltip-atlas">
+    <!--mat-list-item
       class="sidenav-item"
       (click)="_sidenavService.toggleSideNav()"
     >
       <i
         class="fa {{module.module_picto}} picto"
         aria-hidden="true"
-      > </i>
-      <span class="module-name">{{ module.module_label }} </span>
+      > </i-->
+      <i class="fa {{module.module_picto}} fa-2x" aria-hidden="true"> </i>
+      <!--span class="module-name">{{ module.module_label }} </span-->
     </mat-list-item>
   </a>
 </mat-nav-list>
 
 
-<div class="navbar-footer">
+<!--div class="navbar-footer">
   <p class="p-small">
     Réalisé avec <a
       target="_blank"
@@ -62,4 +82,4 @@
       href="http://docs.geonature.fr/authors.html"
     > communauté de structures</a>
   </p>
-</div>
+</div-->

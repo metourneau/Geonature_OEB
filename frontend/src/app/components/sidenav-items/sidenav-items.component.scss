@@ -1,7 +1,12 @@
+@import '../../../conf/names_variables.scss';
+
 .appnav {
-  margin-top: 10px;
-  max-height: 60vh;
+  /*OEB*/
+  /*margin-top: 10px;*/
+  /*max-height: 60vh;*/
+  max-height: 80vh;
   overflow: auto;
+  padding-top: 0px;
 }
 
 .logo {
@@ -29,4 +34,41 @@
 
 .mat-card-image {
   margin-bottom: 0px;
+}
+
+/*OEB*/
+mat-list-item.sidenav-item{
+  color: white;    
+  height: 56px;
+  border-bottom: 1px solid $main-color-atlas;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+}
+
+.sidenav-item:hover{
+  background-color: $main-color-atlas;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+}
+::ng-deep .tooltip-atlas{
+  background-color: black;
+  color: white;
+  /*font-size: 0.75em;*/
+  white-space: pre-line;
+  /*text-align: center;*/
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: left;
+  text-align: start;
+  text-decoration: none;
+  text-shadow: none;
+  text-transform: none;
+  letter-spacing: normal;
+  word-break: normal;
+  word-spacing: normal;
+  word-wrap: normal;
+  white-space: normal;
 }

@@ -15,7 +15,9 @@ export class SideNavService {
   public exportModule;
 
   constructor() {
-    this.opened = false;
+    /*OEB*/
+    /*this.opened = false;*/
+    this.opened = true;
   }
 
   setSideNav(sidenav) {

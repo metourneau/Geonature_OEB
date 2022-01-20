@@ -1,9 +1,14 @@
 .sidenav-container {
-  height: 100%;
+  /*OEB*/
+  /*height: 100%;*/
+  height: calc(100% - 60px);
 
   #app-sidenav {
-    width: 220px;
-    min-width: 65px;
+    /*OEB*/
+    /*width: 220px;
+    min-width: 65px;*/
+  
+    width: 60px;
   }
 }
 #app-toolbar {
@@ -18,3 +23,12 @@
     color: black !important;
   }
 }
+
+.mat-drawer{
+  background-color: #333333;
+}
+
+#logo-structure{
+  height: 60px;
+  margin: -16px;
+} 
