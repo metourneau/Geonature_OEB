@@ -1,0 +1,30 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">Suppression</h4>
+  <button
+    type="button"
+    class="close pull-right"
+    aria-label="Close"
+    (click)="c()"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <p>
+    Attention vous vous apprêtez à supprimer une station qui comporte
+    {{nbHabitats}} habitat(s)
+  </p>
+  <button
+    mat-raised-button
+    (click)="c()"
+    class="btn btn-secondary"
+  >Annuler</button>
+  <button
+    mat-raised-button
+    color="warn"
+    class="mr-1"
+    (click)="deleteStation(modalDelete); c()"
+  >
+    Supprimer
+  </button>
+</div>

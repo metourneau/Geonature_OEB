@@ -1,0 +1,117 @@
+.float-btns {
+  position: absolute;
+  z-index: 10000;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.map-list-container {
+  background-color: #fff;
+  border: 1px solid #f1f1f1;
+  border-radius: 2px;
+  padding: 10px 15px;
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+    0 1px 3px 0 rgba(0, 0, 0, 0.12);
+  height: 100%;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+.action-btn {
+  font-size: 18px;
+}
+
+#download-btn {
+  margin-top: 5px;
+  padding: 5px;
+}
+
+#row-navbar {
+  padding-top: 5px;
+  padding-left: 10px;
+}
+
+#specific-filter {
+  margin-top: -5px;
+  padding-bottom: 5px;
+}
+
+.col-list {
+  list-style: none;
+}
+
+.modal-body {
+  text-align: left !important;
+}
+
+.tab-container {
+  max-height: 81vh;
+  height: 80vh;
+}
+ngx-datatable {
+  // max-height: 79vh !important;
+  box-shadow: none !important;
+  // overflow-y: scroll;
+}
+
+:host /deep/ .ngx-datatable.material .datatable-footer .page-count {
+  padding: 5px;
+  line-height: 1.2;
+  height: 40px;
+}
+
+:host /deep/ .datatable-body-row.active .datatable-row-group {
+  background-color: rgb(117, 227, 118) !important;
+}
+
+.ngx-datatable.material {
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12) !important;
+}
+
+.export-button {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.modal-dialog {
+  max-width: none !important;
+  width: 50%;
+}
+
+#modal-download {
+  max-width: none !important;
+  width: 50%;
+}
+
+.format-btn {
+  margin-left: 5px;
+}
+
+:host /deep/ .dynamic-form-wrapper {
+  display: flex;
+}
+:host /deep/ .dynamic-form {
+  display: flex;
+}
+
+:host /deep/ .full-wrapper {
+  display: flex;
+}
+
+:host /deep/ .trash-btn {
+  position: relative;
+  top: 28px;
+  left: 5px;
+  margin-right: 5px;
+}
+
+:host /deep/ .filter-control {
+  width: 40%;
+}
+
+:host /deep/ .datatable-row-detail {
+  height: auto !important;
+  font-size: 0.8em;
+}

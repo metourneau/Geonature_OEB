@@ -1,0 +1,49 @@
+.map-card {
+  min-height: 85vh;
+  margin: -25px -15px -15px -15px;
+}
+
+#map {
+  height: 100%;
+}
+
+.editable {
+  cursor: crosshair;
+}
+
+.map-header {
+  margin-top: -20px;
+  margin-left: -15px;
+  margin-right: 5px;
+}
+
+.margin-right-sm {
+  margin-right: 5px;
+}
+
+.btn-map-clicked {
+  background-color: #dce3e7;
+}
+
+:host /deep/ .dropdown-menu {
+  z-index: 3000 !important;
+}
+
+.map-container {
+  position: relative;
+}
+
+.form-row {
+  position: absolute;
+  z-index: 3000;
+  right: 50px;
+  top: 10px;
+}
+
+.loading {
+  background-color: #ffffff;
+  background-image: url('../../../assets/images/Spinner.gif');
+  background-size: 25px 25px;
+  background-position: right center;
+  background-repeat: no-repeat;
+}

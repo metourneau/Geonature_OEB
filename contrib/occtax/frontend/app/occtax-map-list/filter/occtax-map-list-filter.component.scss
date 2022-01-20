@@ -1,0 +1,34 @@
+#search-btn {
+  height: 35px;
+  font-size: 15px;
+  margin-top: 20px;
+  margin-left: 3px;
+}
+
+#filter {
+  padding: 15px;
+  padding-top: 50px;
+  background-color: white;
+}
+
+.actions {
+  height: 35px;
+  margin-left: 5px;
+  margin-top: 21px;
+  padding: 8px;
+}
+
+#refresh-filter {
+  color: red;
+}
+#collapse-settings{
+  padding: 5px 15px;
+}
+
+:host /deep/ #button-input {
+  height: 2rem;
+}
+
+::ng-deep .dynamic-form {
+  display: block!important;
+}

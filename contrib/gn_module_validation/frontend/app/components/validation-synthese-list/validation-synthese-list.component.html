@@ -1,0 +1,140 @@
+<ngx-datatable
+  (window:resize)="onResize($event)"
+  #table
+  class="material striped margin-top-xs table-size expandable"
+  [rows]="mapListService.tableData"
+  [columns]="VALIDATION_CONFIG.COLUMN_LIST"
+  [columnMode]="'force'"
+  [headerHeight]="50"
+  [footerHeight]="35"
+  [selected]="mapListService.selectedRow"
+  [selectionType]="'multiClick'"
+  [count]="mapListService.tableData.length"
+  [limit]="rowNumber"
+  [rowClass]="getRowClass"
+  (select)="mapListService.onRowSelect($event)"
+  (activate)="onActivate($event, modal)"
+>
+
+  <ngx-datatable-row-detail rowHeight="100">
+  </ngx-datatable-row-detail>
+
+
+  <ngx-datatable-column
+    [checkboxable]="true"
+    [maxWidth]="10"
+  >
+    <ng-template ngx-datatable-header-template>
+      <label class="datatable-checkbox">
+        <input
+          type="checkbox"
+          (click)="toggleSelection($event)"
+          matTooltip="Sélectionner/déselectionner tout"
+        >
+      </label>
+    </ng-template>
+
+  </ngx-datatable-column>
+
+  <ngx-datatable-column maxWidth="5">
+    <ng-template
+      let-column="column"
+      ngx-datatable-header-template
+    >
+      <span></span>
+    </ng-template>
+
+    <ng-template
+      let-row="row"
+      ngx-datatable-cell-template
+    >
+      <div class="modified_data">
+        <span *ngIf="row.meta_update_date > row.validation_date">
+          <i class="material-icons">warning</i>
+        </span>
+        <span
+          [ngStyle]="{'background': 'white'}"
+          *ngIf="row.meta_update_date > row.validation_date"
+          class="modif_data"
+        >{{modif_text}}</span>
+      </div>
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column maxWidth="60">
+    <ng-template
+      let-column="column"
+      ngx-datatable-header-template
+    >
+      <span>Détails</span>
+    </ng-template>
+    <ng-template
+      let-row="row"
+      ngx-datatable-cell-template
+    >
+      <button
+        #ValidationModalInfoObs
+        id="details"
+        type="button"
+        (click)="openInfoModal(row)"
+        class="btn btn-info fa fa-info-circle"
+        title="details"
+        [disabled]="row.unique_id_sinp == 'None'"
+      >
+      </button>
+    </ng-template>
+  </ngx-datatable-column>
+
+
+  <ngx-datatable-column
+    *ngFor="let col of VALIDATION_CONFIG.COLUMN_LIST"
+    name="{{col.column_label}}"
+    prop="{{col.column_name }}"
+    maxWidth="{{col.max_width||10000}}"
+    minWidth="{{col.min_width||10}}"
+  >
+    <ng-template
+      *ngIf="[
+            'date_min', 'date_max',
+            'meta_validation_date', 'meta_create_date', 'meta_update_date',
+            'validation_date'
+          ].includes(col.column_name)"
+      let-row="row"
+      ngx-datatable-cell-template
+    >
+      {{row[col.column_name] | date:'dd-MM-yyyy'}}
+    </ng-template>
+    <ng-template
+      *ngIf="col.column_name === 'id_nomenclature_valid_status'"
+      let-row="row"
+      ngx-datatable-cell-template
+    >
+      <div class="statusContent">
+        <span
+          class="validationCircle"
+          [ngStyle]="{'background': VALIDATION_CONFIG.STATUS_INFO[row.cd_nomenclature_validation_status]?.color}"
+        >
+          <i class="material-icons">{{row.validation_auto}}</i></span>
+        <div
+          [ngStyle]="{'background': VALIDATION_CONFIG.STATUS_INFO[row.cd_nomenclature_validation_status]?.color}"
+          class="statusName"
+        >
+          <span>{{getValidationStatusMnemonique(row.cd_nomenclature_validation_status)}}</span><span
+            *ngIf="row.validation_auto"
+          > (automatique)</span>
+        </div>
+      </div>
+    </ng-template>
+  </ngx-datatable-column>
+
+</ngx-datatable>
+
+<pnx-validation-popup
+  [selectedPages]="selectedPages"
+  [currentPage]="npage"
+  [nbTotalObservation]="nbTotalObservation"
+  [observations]="selectedObs"
+  [validationStatus]="validationStatus"
+  (valStatus)="onStatusChange($event)"
+  (valDate)="onValidationDateChange($event)"
+>
+</pnx-validation-popup>

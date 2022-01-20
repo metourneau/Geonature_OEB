@@ -1,0 +1,55 @@
+
+.selected-taxon {
+  cursor: pointer;
+  list-style-type: none;
+}
+
+.card-body.releve label {
+  font-weight: bold;
+}
+
+.info-occurrence {
+  margin-top: 10px;
+}
+
+
+.form-container {
+  overflow-y: auto;
+}
+
+.button-rounded {
+  border-radius: 30px;
+  box-shadow: 4px 5px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-left: 15px;
+}
+
+.label {
+  font-weight: bold;
+  display: inline-block;
+  color: rgb(70, 70, 70);
+}
+
+.value {
+  display: inline-block;
+  padding-left: 5px;
+  color: #656565ba;
+}
+
+
+#info-geo {
+  margin-top: 5px;
+}
+
+#row-commentaire {
+  margin-top: 10px;
+}
+
+.occtax-info {
+  background-color: white;
+  padding: 10px 15px;
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+  0 1px 3px 0 rgba(0, 0, 0, 0.12);
+height: 100%;
+}
