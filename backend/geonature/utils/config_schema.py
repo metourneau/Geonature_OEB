@@ -288,6 +288,8 @@ class Synthese(Schema):
 
     # Display email on synthese and validation info obs modal
     DISPLAY_EMAIL = fields.Boolean(load_default=True)
+    # Message à afficher lors du chargement des données dans la synthèse
+    MESSAGE_DATA_LOADING = fields.String(load_default="")
 
 
 # Map configuration

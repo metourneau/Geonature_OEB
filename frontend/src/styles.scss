@@ -422,6 +422,15 @@ li.no-bullet {
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.39);
   z-index: 9999;
+  span#cover-message{ 
+    display: block;
+    position: absolute;
+    left: calc(50% - 110px);
+    top: 45%;
+    width: 220px;
+    height: 40px;
+    text-align: center;
+  }
 }
 
 #cover-spin-removable {
