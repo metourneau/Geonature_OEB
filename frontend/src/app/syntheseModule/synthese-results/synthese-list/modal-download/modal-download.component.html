@@ -53,7 +53,7 @@
       mat-raised-button
       (click)="downloadObservations(format)"
       type="button"
-      class="buttonLoad button-success format-btn"
+      class="buttonLoad button-success format-btn matomo_download"
     >
       Format {{format}}
     </button>
@@ -64,7 +64,7 @@
     <button
       [disabled]="_dataService.isDownloading"
       mat-raised-button
-      class="button-success"
+      class="button-success matomo_download"
       (click)="downloadTaxons('csv', 'synthese_taxons')"
     >
       {{ 'Taxons' | translate }}
@@ -78,7 +78,7 @@
     <button
       [disabled]="_dataService.isDownloading"
       mat-raised-button
-      class="button-success"
+      class="button-success matomo_download"
       (click)="downloadStatusOrMetadata('synthese/export_statuts', 'synthese_statuts')"
     >
       Statuts
@@ -92,7 +92,7 @@
     <button
       [disabled]="_dataService.isDownloading"
       mat-raised-button
-      class="button-success"
+      class="button-success matomo_download"
       (click)="downloadStatusOrMetadata('synthese/export_metadata', 'synthese_metadata')"
     >
       Métadonnées
